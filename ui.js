@@ -45,7 +45,8 @@ var ui = {
 	autoAim: document.getElementById('auto-aim'),
 	theme: {
 		select: document.getElementById('theme-select'),
-		link: document.getElementById('theme-link')
+		link: document.getElementById('theme-link'),
+		Spazz: document.getElementById('main-css')
 	},
 	camera: {
 		viewer: document.getElementById('camera'),
@@ -56,6 +57,15 @@ var ui = {
 		]
 	}
 };
+// I'm building out here cause I don't wanna have to deal with all this u1.theme or ui.something.something stuff
+var tryMe = document.getElementById('speedy-rainbow');
+tryMe.onclick = function() {
+		alert('Did you feel a sense of joy as this opened only to have it crushed by this text?');
+		NetworkTables.setValue('/SmartDashboard/tryMe', ('FEEL OPPRESSED'));
+		var depression = NetworkTables.getValue('/SmartDashboard/tryMe');
+		document.getElementById('Depression').value = depression;
+		NetworkTables.setValue('/SmartDashboard/tryMe/Depression', (document.getElementById('Depression').value))
+};
 
 // Sets function to be called on NetworkTables connect. Commented out because it's usually not necessary.
 // NetworkTables.addWsConnectionListener(onNetworkTablesConnection, true);
@@ -63,7 +73,6 @@ var ui = {
 NetworkTables.addRobotConnectionListener(onRobotConnection, true);
 // Sets function to be called when any NetworkTables key/value changes
 NetworkTables.addGlobalListener(onValueChanged, true);
-
 
 function onRobotConnection(connected) {
 	var state = connected ? 'Robot connected!' : 'Robot disconnected.';
@@ -75,10 +84,9 @@ function onValueChanged(key, value, isNew) {
 	// Sometimes, NetworkTables will pass booleans as strings. This corrects for that.
 	if (value === 'true') value = true;
 	if (value === 'false') value = false;
-
 	// This switch statement chooses which UI element to update when a NetworkTables variable changes.
 	switch (key) {
-		case '/SmartDashboard/Drive/NavX | Yaw': // Gyro rotation
+		case '/SmartDashboard/Drive/navX/yaw': // Gyro rotation
 			ui.gyro.val = value;
 			ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
 			if (ui.gyro.visualVal < 0) { // Corrects for negative values
@@ -141,9 +149,15 @@ function onValueChanged(key, value, isNew) {
 			ui.autoSelect.value = value;
 			break;
 		case '/SmartDashboard/theme':
+			if (value === 'Spazz') {
+					ui.theme.link.href = '/SpeedyRainbow/rainbow.css';
+					ui.theme.Spazz.href = '/SpeedyRainbow/rainbow.css';
+			} else {
 			ui.theme.select.value = value;
 			ui.theme.link.href = 'css/' + value + '.css';
+			ui.theme.Spazz.href = 'css/style.css';
 			break;
+		}
 		case '/SmartDashboard/LightBulb':
 			ui.flashlight.parentNode.className = value ? 'active' : '';
 			break;
@@ -277,8 +291,12 @@ ui.gyro.container.onclick = function() {
 
 // Open tuning section when button is clicked
 ui.tuning.button.onclick = function() {
+	alert('test')
 	if (ui.tuning.list.style.display === 'none') {
 		ui.tuning.list.style.display = 'block';
+		NetworkTable.setValue('/SmartDashboard/tryMe/Depression', document.getElementById('Depression').value);
+		NetworkTable.setValue('/SmartDashboard/tryMe', document.getElementById('Depression').value);
+		document.getElementById('fun').value = NetworkTable.getValue('/SmartDashboard/tryMe/Depression');
 	} else {
 		ui.tuning.list.style.display = 'none';
 	}

@@ -25,6 +25,9 @@ svg *:not(text) {
 text {
     fill: #333;
 }
+.active #bulb * {
+    fill: red;
+}
 aside svg * {
     fill: #333;
     stroke: none;

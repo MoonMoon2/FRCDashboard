@@ -1,0 +1,447 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    animation: fade 0.1s infinite linear;
+}
+::-webkit-scrollbar {
+    display: none;
+    animation: fade 0.1s infinite linear;
+}
+body {
+    font: 16px sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+    overflow: hidden;
+    background: #222;
+    animation: fade 0.1s infinite linear;
+}
+button,
+input[type="text"],
+input[type="number"],
+.select-container,
+select {
+    color: white;
+    background: #444;
+    border: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    cursor: pointer;
+    outline: 0;
+    animation: fade 0.1s infinite linear;
+}
+.select-container {
+    padding: 0;
+    display: inline-block;
+    animation: fade 0.1s infinite linear;
+}
+select {
+    border: none;
+    background: none;
+    color: white;
+    height: 25px;
+    animation: fade 0.1s infinite linear;
+}
+input[type="text"],
+input[type="number"] {
+    cursor: text;
+    animation: fade 0.1s infinite linear;
+}
+input[type="checkbox"] {
+    -webkit-filter: saturate(0);
+    filter: saturate(0);
+    animation: fade 0.1s infinite linear;
+}
+
+/* Major interface panes, aside, article, header, etc. */
+
+body > * {
+    padding: 10px;
+    position: fixed;
+    overflow: scroll;
+    background: #222;
+    animation: fade 0.1s infinite linear;
+}
+#timer {
+    font-family: monospace;
+    display: block;
+    height: 20vh;
+    width: 30vw;
+    top: 0;
+    left: 0;
+    font-size: 20vh;
+    line-height: .8;
+    animation: fade 0.1s infinite linear;
+}
+header {
+    width: 20vw;
+    height: 20vh;
+    top: 0;
+    left: 30vw;
+    color: white;
+    animation: fade 0.1s infinite linear;
+}
+#camera {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #333;
+    background-size: cover;
+    background-image: url('http://10.14.18.2:5800/?action=stream');
+    image-rendering: optimizeSpeed;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    animation: fade 0.1s infinite linear;
+}
+#tuning {
+    width: 50vw;
+    height: 80vh;
+    bottom: 0;
+    left: 0;
+    animation: fade 0.1s infinite linear;
+}
+#tuning div {
+    margin: 20px 0;
+    animation: fade 0.1s infinite linear;
+}
+#tuning p {
+    margin-bottom: 10px;
+    animation: fade 0.1s infinite linear;
+}
+article {
+    top: 0;
+    left: 50vw;
+    height: 100vh;
+    width: 35vw;
+    animation: fade 0.1s infinite linear;
+}
+svg * {
+    stroke: white;
+    fill: #222;
+    stroke-width: 2;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    animation: fade 0.1s infinite linear;
+}
+text {
+    font-size: 16px;
+    letter-spacing: 2px;
+    stroke: none;
+    fill: white;
+    animation: fade 0.1s infinite linear;
+}
+#gyro {
+    width: 450px;
+    height: 450px;
+    animation: fade 0.1s infinite linear;
+}
+#gyro-arm {
+    transform-origin: center;
+    animation: fade 0.1s infinite linear;
+}
+#gyro-number {
+    font-size: 25px;
+    text-anchor: middle;
+    animation: fade 0.1s infinite linear;
+}
+#robot-diagram {
+    position: absolute;
+    bottom: 1px;
+    right: 1vw;
+    animation: fade 0.1s infinite linear;
+}
+#robot-arm {
+    -webkit-transform-origin: right;
+    -ms-transform-origin: right;
+    transform-origin: right;
+    animation: fade 0.1s infinite linear;
+}
+#team {
+    font-size: 28px;
+    letter-spacing: -1px;
+    animation: fade 0.1s infinite linear;
+}
+#winch rect {
+    /* Keep the transition property here. This avoids color fading when a theme is applied. */
+    animation: fade 0.1s infinite linear;
+}
+#winch .forward {
+    transform: rotate(-45deg);
+    animation: fade 0.1s infinite linear;
+}
+#winch .back {
+    transform: rotate(45deg);
+    animation: fade 0.1s infinite linear;
+}
+.transparent {
+    fill: none;
+    animation: fade 0.1s infinite linear;
+}
+aside {
+    right: 0;
+    top: 0;
+    width: 15vw;
+    height: 100vh;
+    animation: fade 0.1s infinite linear;
+}
+aside > * {
+    margin-bottom: 20px;
+    animation: fade 0.1s infinite linear;
+}
+aside svg {
+    width: 64px;
+    display: block;
+    clear: both;
+    animation: fade 0.1s infinite linear;
+}
+aside svg * {
+    fill: white;
+    stroke: white;
+    animation: fade 0.1s infinite linear;
+}
+.active #bulb * {
+    fill: yellow;
+    animation: fade 0.1s infinite linear;
+}
+#auto-aim {
+    fill: aqua;
+    width: 70px;
+    transition: .1s;
+    animation: fade 0.1s infinite linear;
+}
+.active #auto-aim {
+    animation: 5s rotate infinite linear;
+    animation: fade 0.1s infinite linear;
+}
+.active #auto-aim * {
+    fill: red;
+    animation: fade 0.1s infinite linear;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#auto {
+    width: 50vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    display: none;
+    animation: fade 0.1s infinite linear;
+}
+#auto img {
+    width: 120px;
+    height: 120px;
+    animation: fade 0.1s infinite linear;
+}
+.arrow-up,
+.arrow-down {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 25px solid transparent;
+    margin: 0 auto;
+    display: block;
+    animation: fade 0.1s infinite linear;
+}
+.arrow-up {
+    border-bottom-color: #666;
+    animation: fade 0.1s infinite linear;
+}
+.arrow-down {
+    border-top-color: #666;
+    animation: fade 0.1s infinite linear;
+}
+.defense {
+    height: 140px;
+    width: 140px;
+    padding: 10px;
+    display: block;
+    animation: fade 0.1s infinite linear;
+}
+#robot img {
+    height: 120px;
+    width: 120px;
+    animation: fade 0.1s infinite linear;
+}
+body,
+header,
+button,
+input[type="text"],
+input[type="number"],
+.select-container,
+select {
+    color: #18b5ee;
+    animation: fade 0.1s infinite linear;
+}
+svg * {
+    stroke: #18b5ee;
+    animation: fade 0.1s infinite linear;
+}
+text, aside svg *  {
+    fill: #18b5ee;
+    stroke: none;
+    animation: fade 0.1s infinite linear;
+}
+.active #bulb * {
+    fill: #18b5ee;
+    animation: fade 0.1s infinite linear;
+}
+.active #auto-aim * {
+    fill: red;
+    animation: fade 0.1s infinite linear;
+}
+@keyframes fade {
+    0% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    5% {
+        color: #ffa733;
+        border-color: #ffa733;
+    }
+    10% {
+        color: #fbff37;
+        border-color: #fbff37;
+    }
+    15% {
+        color: #49f130;
+        border-color: #49f130;
+    }
+    20% {
+        color: #18b5ee;
+        border-color: #18b5ee;
+    }
+    25% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    30% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    35% {
+        color: #ffa733;
+        border-color: #ffa733;
+    }
+    40% {
+        color: #fbff37;
+        border-color: #fbff37;
+    }
+    45% {
+        color: #49f130;
+        border-color: #49f130;
+    }
+    50% {
+        color: #18b5ee;
+        border-color: #18b5ee;
+    }
+    55% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    60% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    65% {
+        color: #ffa733;
+        border-color: #ffa733;
+    }
+    70% {
+        color: #fbff37;
+        border-color: #fbff37;
+    }
+    75% {
+        color: #49f130;
+        border-color: #49f130;
+    }
+    80% {
+        color: #18b5ee;
+        border-color: #18b5ee;
+    }
+    85% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    90% {
+        color: #e81e1e;
+        border-color: #e81e1e;
+    }
+    95% {
+        color: #ffa733;
+        border-color: #ffa733;
+    }
+    100% {
+        color: #fbff37;
+        border-color: #fbff37;
+    }
+}
+
+.arrow-up {
+    border-bottom-color: #18b5ee;
+    animation: fadeBorderBottom 0.1s infinite linear;
+}
+.arrow-down {
+    border-top-color: #18b5ee;
+    animation: fadeBorderTop 0.1s infinite linear;
+}
+
+@keyframes fadeBorderTop {
+    0% { border-top-color: #e81e1e; }
+    5% { border-top-color: #ffa733; }
+    10% { border-top-color: #fbff37; }
+    15% { border-top-color: #49f130; }
+    25% { border-top-color: #18b5ee; }
+    30% { border-top-color: #e81e1e; }
+    35% { border-top-color: #e81e1e; }
+    40% { border-top-color: #ffa733; }
+    45% { border-top-color: #fbff37; }
+    50% { border-top-color: #49f130; }
+    55% { border-top-color: #18b5ee; }
+    60% { border-top-color: #e81e1e; }
+    65% { border-top-color: #e81e1e; }
+    70% { border-top-color: #ffa733; }
+    75% { border-top-color: #fbff37; }
+    80% { border-top-color: #49f130; }
+    85% { border-top-color: #18b5ee; }
+    90% { border-top-color: #e81e1e; }
+    95% { border-top-color: #e81e1e; }
+    100% { border-top-color: #ffa733; }
+}
+@keyframes fadeBorderBottom {
+  0% { border-top-color: #e81e1e; }
+  5% { border-top-color: #ffa733; }
+  10% { border-top-color: #fbff37; }
+  15% { border-top-color: #49f130; }
+  25% { border-top-color: #18b5ee; }
+  30% { border-top-color: #e81e1e; }
+  35% { border-top-color: #e81e1e; }
+  40% { border-top-color: #ffa733; }
+  45% { border-top-color: #fbff37; }
+  50% { border-top-color: #49f130; }
+  55% { border-top-color: #18b5ee; }
+  60% { border-top-color: #e81e1e; }
+  65% { border-top-color: #e81e1e; }
+  70% { border-top-color: #ffa733; }
+  75% { border-top-color: #fbff37; }
+  80% { border-top-color: #49f130; }
+  85% { border-top-color: #18b5ee; }
+  90% { border-top-color: #e81e1e; }
+  95% { border-top-color: #e81e1e; }
+  100% { border-top-color: #ffa733; }
+}

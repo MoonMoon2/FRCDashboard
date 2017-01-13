@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>FRC Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link id="main-css" rel="stylesheet" href="css/style.css">
     <link id="theme-link" rel="stylesheet" href>
 </head>
 
@@ -16,6 +16,7 @@
         <div id="robot-state">Unknown state</div>
         <button id="tuning-button">Tuning</button>
         <button id="auto-button">Auto</button>
+        <button id="speedy-rainbow">Try Me!</button>
     </header>
     <!-- You'll need to mess around with the CSS of #camera (found in css/style.css) to get it to work.
         More explanation in that CSS rule. -->
@@ -25,6 +26,7 @@
         <input type="text" placeholder="Value" id="value">
         <button id="set">Set</button>
         <button id="get">Get</button>
+        <input type="text" id="fun" value="">
     </div>
     <!-- The main body of the dashboard, by default contains the gyro monitor and the robot diagram -->
     <article>
@@ -237,13 +239,14 @@
             </select>
         </div>
         <p>Theme:</p>
+        <input id="Depression" type="text" value= " " readonly="readonly">
         <div class="select-container">
             <select id="theme-select">
                 <option>dark</option>
                 <option>light</option>
                 <option>red</option>
                 <option>blue</option>
-                <option>rainbow</option>
+                <option>Spazz</option>
             </select>
         </div>
         <div>
